@@ -10,18 +10,17 @@ func TestHello(t *testing.T) {
 		got := Hello("amir")
 		want := "Mello, amir!"
 
-		if got != want {
-			t.Errorf("Wanted %q but got %q", want, got)
-		}
+		assertCorrectMessage(t, got, want)
 	})
 	t.Run("Saying Hello World when no argument is supplied", func(t *testing.T) {
 		got := Hello("")
 		want := "Mello, World!"
-
-		if got != want {
-
-			t.Errorf("Wanted %q but got %q", want, got)
-		}
-
+		assertCorrectMessage(t, got, want)
 	})
+}
+func assertCorrectMessage(t testing.TB, got, want string) {
+	t.Helper()
+	if got != want {
+		t.Errorf("Wanted %q but got %q", want, got)
+	}
 }
