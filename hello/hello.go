@@ -6,7 +6,10 @@ import (
 )
 
 func Hello(name string) string {
-	return "Mello, "+name+"!"
+	if name == "" {
+		name = "World"
+	}
+	return "Mello, " + name + "!"
 }
 func main() {
 	fmt.Println(Hello("amza"))
