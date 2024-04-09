@@ -7,14 +7,19 @@ import (
 
 func TestHello(t *testing.T) {
 	t.Run("saying hello ", func(t *testing.T) {
-		got := Hello("amir")
-		want := "Mello, amir!"
+		got := Hello("amir", "Spanish")
+		want := "Hola, amir!"
 
 		assertCorrectMessage(t, got, want)
 	})
 	t.Run("Saying Hello World when no argument is supplied", func(t *testing.T) {
-		got := Hello("")
-		want := "Mello, World!"
+		got := Hello("", "Spanish")
+		want := "Hola, World!"
+		assertCorrectMessage(t, got, want)
+	})
+	t.Run("In Spanish", func(t *testing.T) {
+		got := Hello("Joma", "Spanish")
+		want := "Hola, Joma!"
 		assertCorrectMessage(t, got, want)
 	})
 }
